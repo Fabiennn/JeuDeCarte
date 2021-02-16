@@ -1,9 +1,7 @@
 package com.example.casse_brique;
 
-import android.os.Message;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -14,14 +12,23 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button button = findViewById(R.id.buttonnnn);
-        final TextView message = findViewById(R.id.textTer);
+        Button buttonPlay = findViewById(R.id.Play);
 
-        button.setOnClickListener(new View.OnClickListener() {
+        Button buttonQuit = findViewById(R.id.Quitter);
+
+        buttonPlay.setOnClickListener(new View.OnClickListener() {
             @Override
              public void onClick(View v) {
-                message.setText(String.format("CA A MARCHE"));
+                setContentView(R.layout.first_card);
             }
+        });
+
+        buttonQuit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               finish();
+            }
+
         });
 
     }

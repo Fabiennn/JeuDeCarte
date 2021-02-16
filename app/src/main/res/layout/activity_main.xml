@@ -5,25 +5,41 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        tools:context=".MainActivity"
+        android:background="@color/cardview_dark_background">
+    <ImageView
+            android:layout_width="220dp"
+            android:layout_height="186dp"
+            android:src="@drawable/ic_polytech"
+            tools:ignore="MissingConstraints" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Titre" app:layout_constraintBottom_toTopOf="@+id/Play"
+            android:background="#1B1616"/>
     <Button
-            android:layout_width="205dp"
-            android:layout_height="53dp"
-            android:text="JE SUIS LA"
+            android:layout_width="166dp"
+            android:layout_height="62dp"
+            android:text="Quitter"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.316"
-            app:layout_constraintHorizontal_bias="0.553" android:id="@+id/buttonnnn"/>
+            app:layout_constraintVertical_bias="0.902"
+            app:layout_constraintHorizontal_bias="0.497" android:id="@+id/Quitter"/>
+    <Button
+            android:layout_width="166dp"
+            android:layout_height="62dp"
+            android:text="Play"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.774"
+            android:id="@+id/Play" app:layout_constraintHorizontal_bias="0.497"/>
     <TextView
+            android:text="Nom de notre jeu"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Vincent le plus beau"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.459" android:id="@+id/textTer"/>
+            android:layout_height="wrap_content" android:id="@+id/Titre" tools:layout_editor_absoluteY="82dp"
+            tools:layout_editor_absoluteX="66dp" android:textColor="#FFFFFF" android:inputType="text"
+            android:textStyle="bold" android:textAppearance="@style/TextAppearance.AppCompat.Display1"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
