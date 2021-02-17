@@ -1,12 +1,14 @@
 package com.example.casse_brique;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+public class MenuJeu extends AppCompatActivity {
 
+    // Creation
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,13 +21,16 @@ public class MainActivity extends AppCompatActivity {
         buttonPlay.setOnClickListener(new View.OnClickListener() {
             @Override
              public void onClick(View v) {
-                setContentView(R.layout.first_card);
+                // Creation d'une nouvelle activite, ici BoucleJeu
+                Intent myIntent = new Intent(MenuJeu.this, BoucleJeu.class);
+                MenuJeu.this.startActivity(myIntent);
             }
         });
 
         buttonQuit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Quitte l'application
                finish();
             }
 
