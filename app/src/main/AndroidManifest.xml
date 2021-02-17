@@ -8,11 +8,11 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity
-                android:name=".MainActivity2"
+                android:name=".BoucleJeu"
                 android:label="@string/title_activity_main2"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".MenuJeu">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

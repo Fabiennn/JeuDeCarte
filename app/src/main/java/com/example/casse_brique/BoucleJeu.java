@@ -7,8 +7,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 
-public class MainActivity2 extends AppCompatActivity {
+import java.util.ArrayList;
 
+public class BoucleJeu extends AppCompatActivity {
+
+    private final static int NB_CARTES = 5;
+    private ArrayList<Integer> integerList = new ArrayList<>();
+
+    // Activité principale
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
