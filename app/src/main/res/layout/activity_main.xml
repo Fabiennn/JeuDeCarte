@@ -7,6 +7,7 @@
         android:layout_height="match_parent"
         tools:context=".MenuJeu"
         android:background="@color/cardview_dark_background">
+
     <ImageView
             android:layout_width="220dp"
             android:layout_height="186dp"
@@ -38,8 +39,9 @@
     <TextView
             android:text="Nom de notre jeu"
             android:layout_width="wrap_content"
+            tools:ignore="MissingConstraints"
             android:layout_height="wrap_content" android:id="@+id/Titre" tools:layout_editor_absoluteY="82dp"
             tools:layout_editor_absoluteX="66dp" android:textColor="#FFFFFF" android:inputType="text"
-            android:textStyle="bold" android:textAppearance="@style/TextAppearance.AppCompat.Display1"/>
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

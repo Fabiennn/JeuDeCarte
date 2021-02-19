@@ -2,19 +2,31 @@ package com.example.casse_brique;
 
 import android.media.Image;
 
+import java.util.HashMap;
+
+
 public class Carte {
-    private int id, influenceArgent, influenceAmour, influenceDivertissement, influenceSante;
+    private int id;
+    private HashMap<String, Integer> influenceAnswerYes = new HashMap<>();
+    private HashMap<String, Integer> influenceAnswerNo = new HashMap<>();
     private String description;
-    private Image image;
+    private String image;
     private String personnage;
 
-    public Carte(int id, int influenceArgent, int influenceAmour, int influenceDivertissement, int influenceSante, String description, Image image, String personnage) {
+    public Carte(int id, int influenceArgentYes, int influenceAmourYes, int influenceDivertissementYes, int influenceSanteYes,
+                 int influenceArgentNo, int influenceAmourNo, int influenceDivertissementNo, int influenceSanteNo, String description, String image, String personnage) {
         this.id = id;
-        this.influenceArgent = influenceArgent;
-        this.influenceAmour = influenceAmour;
-        this.influenceDivertissement = influenceDivertissement;
-        this.influenceSante = influenceSante;
         this.description = description;
+        this.influenceAnswerYes.put("influenceArgent", influenceArgentYes);
+        this.influenceAnswerYes.put("influenceAmour", influenceAmourYes);
+        this.influenceAnswerYes.put("influenceDivertissement", influenceDivertissementYes);
+        this.influenceAnswerYes.put("influenceSante", influenceSanteYes);
+
+        this.influenceAnswerNo.put("influenceArgent", influenceArgentNo);
+        this.influenceAnswerNo.put("influenceAmour", influenceAmourNo);
+        this.influenceAnswerNo.put("influenceDivertissement", influenceDivertissementNo);
+        this.influenceAnswerNo.put("influenceSante", influenceSanteNo);
+
         this.image = image;
         this.personnage = personnage;
     }
@@ -27,36 +39,20 @@ public class Carte {
         this.id = id;
     }
 
-    public int getInfluenceArgent() {
-        return influenceArgent;
+    public HashMap<String, Integer> getInfluenceAnswerYes() {
+        return influenceAnswerYes;
     }
 
-    public void setInfluenceArgent(int influenceArgent) {
-        this.influenceArgent = influenceArgent;
+    public void setInfluenceAnswerYes(HashMap<String, Integer> influenceAnswerYes) {
+        this.influenceAnswerYes = influenceAnswerYes;
     }
 
-    public int getInfluenceAmour() {
-        return influenceAmour;
+    public HashMap<String, Integer> getInfluenceAnswerNo() {
+        return influenceAnswerNo;
     }
 
-    public void setInfluenceAmour(int influenceAmour) {
-        this.influenceAmour = influenceAmour;
-    }
-
-    public int getInfluenceDivertissement() {
-        return influenceDivertissement;
-    }
-
-    public void setInfluenceDivertissement(int influenceDivertissement) {
-        this.influenceDivertissement = influenceDivertissement;
-    }
-
-    public int getInfluenceSante() {
-        return influenceSante;
-    }
-
-    public void setInfluenceSante(int influenceSante) {
-        this.influenceSante = influenceSante;
+    public void setInfluenceAnswerNo(HashMap<String, Integer> influenceAnswerNo) {
+        this.influenceAnswerNo = influenceAnswerNo;
     }
 
     public String getDescription() {
@@ -67,11 +63,11 @@ public class Carte {
         this.description = description;
     }
 
-    public Image getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(Image image) {
+    public void setImage(String image) {
         this.image = image;
     }
 
@@ -82,15 +78,4 @@ public class Carte {
     public void setPersonnage(String personnage) {
         this.personnage = personnage;
     }
-
-    public Carte(int id, int influenceArgent, int influenceAmour, int influenceDivertissement, int influenceSante, String description) {
-        this.id = id;
-        this.influenceArgent = influenceArgent;
-        this.influenceAmour = influenceAmour;
-        this.influenceDivertissement = influenceDivertissement;
-        this.influenceSante = influenceSante;
-        this.description = description;
-    }
-
-
 }
