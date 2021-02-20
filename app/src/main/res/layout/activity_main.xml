@@ -1,47 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".MenuJeu"
-        android:background="@color/cardview_dark_background">
-
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/background">
     <ImageView
-            android:layout_width="220dp"
-            android:layout_height="186dp"
-            android:src="@drawable/ic_polytech"
-            tools:ignore="MissingConstraints" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Titre" app:layout_constraintBottom_toTopOf="@+id/Play"
-            android:background="#1B1616" android:id="@+id/imgPolytech"/>
-    <Button
-            android:layout_width="166dp"
-            android:layout_height="62dp"
-            android:text="Quitter"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.902"
-            app:layout_constraintHorizontal_bias="0.497" android:id="@+id/Quitter"/>
-    <Button
-            android:layout_width="166dp"
-            android:layout_height="62dp"
-            android:text="Play"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.774"
-            android:id="@+id/Play" app:layout_constraintHorizontal_bias="0.497"/>
-    <TextView
-            android:text="Nom de notre jeu"
-            android:layout_width="wrap_content"
-            tools:ignore="MissingConstraints"
-            android:layout_height="wrap_content" android:id="@+id/Titre" tools:layout_editor_absoluteY="82dp"
-            tools:layout_editor_absoluteX="66dp" android:textColor="#FFFFFF" android:inputType="text"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"/>
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/imageChoice"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+    />
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="220dp"
+            android:paddingRight="60dp"
+            android:padding="15dp">
+        <EditText
+                android:id="@+id/Titre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Titre du jeu"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:textColorHint="#fff"
+                android:layout_marginLeft="15dp"
+                android:background="#00000000"
+                android:letterSpacing="0.1"
+                android:textSize="35dp"
+                android:textColor="#fff"
+                android:inputType="textUri"
+                android:autofillHints="" android:textAppearance="@style/TextAppearance.AppCompat.Display3"/>
+    </LinearLayout>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingLeft="60dp"
+            android:paddingRight="60dp"
+            android:layout_marginTop="40dp">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+                <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/user"
+                        android:layout_gravity="center"/>
+                <EditText
+                        android:id="@+id/username"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Entrez votre nom"
+                        android:textColorHint="#fff"
+                        android:layout_marginLeft="15dp"
+                        android:background="#00000000"
+                        android:letterSpacing="0.1"
+                        android:textSize="16dp"
+                        android:textColor="#fff"
+                        android:inputType="text"
+                        android:autofillHints=""/>
+            </LinearLayout>
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#5fff"></LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#5fff"></LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#5fff"></LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="500dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+    >
+        <Button
+                android:id="@+id/Play"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Play"
+                android:textColor="#fff"
+                android:background="@drawable/border"
+                android:padding="15dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_marginLeft="10dp"
+                android:textStyle="bold"
+        />
+        <Button
+                android:id="@+id/Quitter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Quitter"
+                android:textColor="#fff"
+                android:background="@drawable/border"
+                android:padding="15dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_marginLeft="10dp"
+                android:textStyle="bold"
+        />
+    </LinearLayout>
+</RelativeLayout>
