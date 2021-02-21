@@ -1,6 +1,7 @@
 package com.example.casse_brique;
 
 import android.media.Image;
+import androidx.annotation.DrawableRes;
 
 import java.util.HashMap;
 
@@ -10,11 +11,11 @@ public class Carte {
     private HashMap<String, Integer> influenceAnswerYes = new HashMap<>();
     private HashMap<String, Integer> influenceAnswerNo = new HashMap<>();
     private String description;
-    private String image;
+    private int image;
     private String personnage;
 
     public Carte(int id, int influenceArgentYes, int influenceAmourYes, int influenceDivertissementYes, int influenceSanteYes,
-                 int influenceArgentNo, int influenceAmourNo, int influenceDivertissementNo, int influenceSanteNo, String description, String image, String personnage) {
+                 int influenceArgentNo, int influenceAmourNo, int influenceDivertissementNo, int influenceSanteNo, String description, int image, String personnage) {
         this.id = id;
         this.description = description;
         this.influenceAnswerYes.put("influenceArgent", influenceArgentYes);
@@ -63,11 +64,11 @@ public class Carte {
         this.description = description;
     }
 
-    public String getImage() {
+    public int getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public void setImage(int image) {
         this.image = image;
     }
 

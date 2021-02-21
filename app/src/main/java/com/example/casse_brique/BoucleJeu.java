@@ -1,5 +1,6 @@
 package com.example.casse_brique;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -10,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -31,14 +33,15 @@ public class BoucleJeu extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
 
         Button buttonYes = findViewById(R.id.buttonYes);
-        final Carte carte = new Carte(1, 5,5,5,5,5,5,5,5, "descriptionUN", "Image", "Personnage");
-        final Carte carte2 = new Carte(2, 5,5,5,100,5,5,5,5, "descriptionDEUX", "Image", "Personnage");
-        final Carte carte3 = new Carte(3, 5,5,5,100,5,5,5,5, "descriptionTROIS", "Image", "Personnage");
-        final Carte carte4 = new Carte(4, 5,5,5,100,5,5,5,5, "descriptionQUATRE", "Image", "Personnage");
-        final Carte carte5 = new Carte(5, 5,5,5,100,5,5,5,5, "descriptionCINQ", "Image", "Personnage");
-        final Carte carte6 = new Carte(6, 5,5,5,100,5,5,5,5, "descriptionSIX", "Image", "Personnage");
-        final Carte carte7 = new Carte(7, 5,5,5,100,5,5,5,5, "descriptionSEPT", "Image", "Personnage");
-        final Carte carte8 = new Carte(8, 5,5,5,100,5,5,5,5, "descriptionHUIT", "Image", "Personnage");
+        Button buttonNo = findViewById(R.id.buttonNo);
+        final Carte carte = new Carte(1, 5,5,5,5,5,5,5,5, "descriptionUN", R.drawable.portrait1, "Personnage");
+        final Carte carte2 = new Carte(2, 5,5,5,100,5,5,5,5, "descriptionDEUX", R.drawable.portrait2, "Personnage");
+        final Carte carte3 = new Carte(3, 5,5,5,100,5,5,5,5, "descriptionTROIS", R.drawable.portrait3, "Personnage");
+        final Carte carte4 = new Carte(4, 5,5,5,100,5,5,5,5, "descriptionQUATRE", R.drawable.portrait4, "Personnage");
+        final Carte carte5 = new Carte(5, 5,5,5,100,5,5,5,5, "descriptionCINQ", R.drawable.portrait5, "Personnage");
+        final Carte carte6 = new Carte(6, 5,5,5,100,5,5,5,5, "descriptionSIX", R.drawable.portrait6, "Personnage");
+        final Carte carte7 = new Carte(7, 5,5,5,100,5,5,5,5, "descriptionSEPT", R.drawable.portrait7, "Personnage");
+        final Carte carte8 = new Carte(8, 5,5,5,100,5,5,5,5, "descriptionHUIT", R.drawable.portrait8, "Personnage");
 
         final HashMap<Integer, Carte> tamere = new HashMap<>();
         tamere.put(1,carte);
@@ -50,26 +53,35 @@ public class BoucleJeu extends AppCompatActivity {
         tamere.put(7,carte7);
         tamere.put(8,carte8);
         final TextView textHealth = findViewById(R.id.textHealth);
-        TextView textLove = findViewById(R.id.textLove);
-        TextView textLaugh = findViewById(R.id.textLaugh);
-        TextView textMoney = findViewById(R.id.textMoney);
+        final TextView textLove = findViewById(R.id.textLove);
+        final TextView textLaugh = findViewById(R.id.textLaugh);
+        final TextView textMoney = findViewById(R.id.textMoney);
+        final TextView description = findViewById(R.id.description);
+        final ImageView portrait = findViewById(R.id.portrait);
 
-        textHealth.setText(String.valueOf(valueOfHealth) + "%");
-        textLove.setText(String.valueOf(valueOfLove) + "%");
-        textLaugh.setText(String.valueOf(valueOfLaugh) + "%");
-        textMoney.setText(String.valueOf(valueOfMoney) + "%");
+        textHealth.setText(valueOfHealth + "%");
+        textLove.setText(valueOfLove + "%");
+        textLaugh.setText(valueOfLaugh + "%");
+        textMoney.setText(valueOfMoney + "%");
 
 
         integerList.add(nombreAleatoire);
         carteActive = tamere.get(nombreAleatoire);
-
-
+        description.setText(carteActive.getDescription());
+        portrait.setImageResource(carteActive.getImage());
         buttonYes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Add stats of the card
                 valueOfHealth += carteActive.getInfluenceAnswerYes().get("influenceSante");
-                textHealth.setText(carteActive.getDescription());
+                valueOfLaugh += carteActive.getInfluenceAnswerYes().get("influenceDivertissement");
+                valueOfLove += carteActive.getInfluenceAnswerYes().get("influenceAmour");
+                valueOfMoney += carteActive.getInfluenceAnswerYes().get("influenceArgent");
+                textHealth.setText(valueOfHealth + "%");
+                textLaugh.setText(valueOfLaugh + "%");
+                textLove.setText(valueOfLove + "%");
+                textMoney.setText(valueOfMoney + "%");
+
                 if (integerList.size() < tamere.size()) {
                     do {
                         nombreAleatoire = 2 + (int) (Math.random() * (tamere.size() - 1));
@@ -78,9 +90,37 @@ public class BoucleJeu extends AppCompatActivity {
 
                     integerList.add(nombreAleatoire);
                     carteActive = tamere.get(nombreAleatoire);
+                    description.setText(carteActive.getDescription());
+                    portrait.setImageResource(carteActive.getImage());
                 }
             }
             });
+
+        buttonNo.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                valueOfHealth += carteActive.getInfluenceAnswerNo().get("influenceSante");
+                valueOfLaugh += carteActive.getInfluenceAnswerNo().get("influenceDivertissement");
+                valueOfLove += carteActive.getInfluenceAnswerNo().get("influenceAmour");
+                valueOfMoney += carteActive.getInfluenceAnswerNo().get("influenceArgent");
+                textHealth.setText(valueOfHealth + "%");
+                textLaugh.setText(valueOfLaugh + "%");
+                textLove.setText(valueOfLove + "%");
+                textMoney.setText(valueOfMoney + "%");
+
+                if (integerList.size() < tamere.size()) {
+                    do {
+                        nombreAleatoire = 2 + (int) (Math.random() * (tamere.size() - 1));
+                    } while (integerList.contains(nombreAleatoire));
+                    System.out.println("MON CHIFFRE" + nombreAleatoire);
+
+                    integerList.add(nombreAleatoire);
+                    carteActive = tamere.get(nombreAleatoire);
+                    description.setText(carteActive.getDescription());
+                    portrait.setImageResource(carteActive.getImage());
+                }
+            }
+        }) );
 
         }
 

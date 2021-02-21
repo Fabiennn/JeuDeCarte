@@ -5,13 +5,18 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 tools:context=".MenuJeu"
                 android:background="@drawable/background">
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
     <ImageView
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:src="@drawable/imagechoice"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="25dp"
     />
+    </LinearLayout>
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -19,18 +24,18 @@
             android:layout_marginTop="220dp"
             android:paddingRight="60dp"
             android:padding="15dp">
-        <EditText
+        <TextView
                 android:id="@+id/Titre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Titre du jeu"
+                android:hint="Choose Your Destiny"
                 android:gravity="center"
                 android:layout_gravity="center"
                 android:textColorHint="#fff"
                 android:layout_marginLeft="15dp"
                 android:background="#00000000"
                 android:letterSpacing="0.1"
-                android:textSize="35dp"
+                android:textSize="32dp"
                 android:textColor="#fff"
                 android:inputType="textUri"
                 android:autofillHints="" android:textAppearance="@style/TextAppearance.AppCompat.Display3"/>
