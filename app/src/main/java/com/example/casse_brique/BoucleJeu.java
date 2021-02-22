@@ -53,11 +53,16 @@ public class BoucleJeu extends AppCompatActivity {
         tamere.put(7,carte7);
         tamere.put(8,carte8);
         final TextView textHealth = findViewById(R.id.textHealth);
+
         final TextView textLove = findViewById(R.id.textLove);
         final TextView textLaugh = findViewById(R.id.textLaugh);
         final TextView textMoney = findViewById(R.id.textMoney);
         final TextView description = findViewById(R.id.description);
         final ImageView portrait = findViewById(R.id.portrait);
+
+        TextView nomJoueur = findViewById(R.id.nomJoueur);
+
+        nomJoueur.setText((String) getIntent().getSerializableExtra("nomJoueur"));
 
         textHealth.setText(valueOfHealth + "%");
         textLove.setText(valueOfLove + "%");
